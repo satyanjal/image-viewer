@@ -43,7 +43,8 @@ class Login extends Component {
             usernameRequired: "dispNone",
             userName: "",
             loginPasswordRequired: "dispNone",
-            password: ""
+            password: "",
+            incorrectCreds: "dispNone"
         }
     }
 
@@ -62,7 +63,10 @@ class Login extends Component {
 
 
         if (this.state.userName === "admin" && this.state.password === "admin") {
+            this.setState({ incorrectCreds: "dispNone" })
             sessionStorage.setItem("access-token", "8661035776.d0fcd39.39f63ab2f88d4f9c92b0862729ee2784");
+        } else {
+            this.setState({ incorrectCreds: "dispBlock" })
         }
     }
 
@@ -98,6 +102,10 @@ class Login extends Component {
                                         <span className="red">required</span>
                                     </FormHelperText>
                                 </FormControl>
+
+                                <FormHelperText className={this.state.incorrectCreds}>
+                                    <span className="red">Incorrect username and/or password</span>
+                                </FormHelperText>
                                 <br /><br />
                                 <FormControl className={btnClass}>
                                     <Button onClick={this.loginClickHandler} variant="contained" color="primary">
