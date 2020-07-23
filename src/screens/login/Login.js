@@ -66,13 +66,14 @@ class Login extends Component {
             this.setState({ incorrectCreds: "dispNone" })
             sessionStorage.setItem("access-token", "8661035776.d0fcd39.39f63ab2f88d4f9c92b0862729ee2784");
         } else {
-            this.setState({ incorrectCreds: "dispBlock" })
+            if (this.state.userName !== "" && this.state.password !== "") {
+                this.setState({ incorrectCreds: "dispBlock" })
+            }
         }
     }
 
     render() {
         const { classes } = this.props;
-        const btnClass = classNames('{classes.formControl}', "login-btn")
         return (
             <div>
                 <Header heading="Image Viewer" />
@@ -107,7 +108,7 @@ class Login extends Component {
                                     <span className="red">Incorrect username and/or password</span>
                                 </FormHelperText>
                                 <br /><br />
-                                <FormControl className={btnClass}>
+                                <FormControl className="login-btn">
                                     <Button onClick={this.loginClickHandler} variant="contained" color="primary">
                                         LOGIN
                                     </Button>
