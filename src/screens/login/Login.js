@@ -69,7 +69,7 @@ class Login extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Header heading="Image Viewer" />
+                <Header heading="Image Viewer" isLoggedIn="false" />
 
                 <div className="flex-container">
                     <div className="right">
