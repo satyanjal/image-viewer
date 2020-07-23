@@ -29,9 +29,7 @@ const Header = function (props) {
                 <SearchBar/>
                 <span className="profileIcon">
                     <IconButton aria-label="delete">
-                        <Avatar alt="Remy Sharp"
-                        src="https://analyttica-website-static-content.s3.amazonaws.com/leaps-logo/Text+analytics.jpg"
-                        className={classes.large} />
+                        <Avatar src={props.imageSrc} className={classes.large} />
                     </IconButton>
                 </span>
             </span>
