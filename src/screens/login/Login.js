@@ -57,7 +57,7 @@ class Login extends Component {
         if (this.state.userName === "admin" && this.state.password === "admin") {
             this.setState({ incorrectCreds: "dispNone" })
             sessionStorage.setItem("access-token", "8661035776.d0fcd39.39f63ab2f88d4f9c92b0862729ee2784");
-            this.context.router.history.push(`/home`)
+//            this.context.router.history.push(`/home`)
         } else {
             if (this.state.userName !== "" && this.state.password !== "") {
                 this.setState({ incorrectCreds: "dispBlock" })

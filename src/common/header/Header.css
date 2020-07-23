@@ -3,4 +3,11 @@
     background: #263238;
     color: #fff;
     font-size: 18px;
+    height: 30px;
+}
+
+.searchBar {
+    float: right;
+    margin-top: -7px;
+    margin-right: 75px;
 }
