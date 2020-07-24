@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import DropDownMenu from '../../common/dropDown';
 import SearchBar from '../../common/searchBar';
+import ProfileIconBtn from '../../common/profileIconBtn';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,9 +23,7 @@ const Header = function (props) {
     let afterLogin;
 
     let profileIcon;
-    profileIcon = <IconButton aria-label="delete">
-                        <Avatar src={props.imageSrc} className={classes.large} />
-                    </IconButton>
+    profileIcon = <ProfileIconBtn imageSrc={props.imageSrc}/>
 
     if (props.isLoggedIn === "true") {
       afterLogin = <span className="searchBar">
