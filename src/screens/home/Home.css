@@ -1,11 +1,34 @@
 .card-test {
-    height : 500px;
+    height : 600px;
     width: 550px;
     float:left;
-    margin: 20px 0px 0px 100px;
+    margin: 30px 0px 0px 100px;
 }
 
 .img-size {
     width: 520px;
     height : 400px;
+}
+
+.card-header {
+    background: white;
+    border: 0px white;
+}
+
+.card-header-name {
+    margin: 0px 140px 7px 0px;
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.card-header-date {
+    margin: 0px 65px 7px 0px;
+    font-size: 18px;
+    color: #757575
+}
+
+.profile-icon {
+    background: white;
+    border: 0px white;
+
 }

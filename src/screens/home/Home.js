@@ -19,11 +19,11 @@ class Home extends Component {
                 <span>
                     <Card className="card-test">
                         <div>
-                            <ProfileIconBtn imageSrc={imageSrc}/>
-                            <span>
-                                satyanjalprakash
-                                2018-10-06T19:20:04+0000
-                            </span>
+                            <button className="profile-icon"><ProfileIconBtn imageSrc={imageSrc}/></button>
+                            <button className="card-header">
+                                <div className="card-header-name">satyanjalprakash</div>
+                                <div className="card-header-date">2018-10-06T19:20:04+0000</div>
+                            </button>
                         </div>
                         <CardContent>
                             <img className="img-size"
@@ -36,11 +36,11 @@ class Home extends Component {
                 <span>
                     <Card className="card-test">
                         <div>
-                            <ProfileIconBtn imageSrc={imageSrc}/>
-                            <span>
-                                satyanjalprakash
-                                2018-10-06T19:20:04+0000
-                            </span>
+                            <button className="profile-icon"><ProfileIconBtn imageSrc={imageSrc}/></button>
+                            <button className="card-header">
+                                <div className="card-header-name">satyanjalprakash</div>
+                                <div className="card-header-date">2018-10-06T19:20:04+0000</div>
+                            </button>
                         </div>
                         <CardContent>
                             <img className="img-size"
@@ -49,6 +49,26 @@ class Home extends Component {
                         </CardContent>
                     </Card>
                 </span>
+
+                <span>
+                    <Card className="card-test">
+                        <div>
+                            <button className="profile-icon"><ProfileIconBtn imageSrc={imageSrc}/></button>
+                            <button className="card-header">
+                                <div className="card-header-name">satyanjalprakash</div>
+                                <div className="card-header-date">2018-10-06T19:20:04+0000</div>
+                            </button>
+                        </div>
+                        <CardContent>
+                            <img className="img-size"
+                            src="https://scontent.cdninstagram.com/v/t51.2885-15/41975221_1930245020331477_1376127851087837738_n.jpg?_nc_cat=111&_nc_sid=8ae9d6&_nc_ohc=soUJ8Ev0NnAAX_yyNrQ&_nc_ht=scontent.cdninstagram.com&oh=b1a37e91deb56550d908c7864ac0ff98&oe=5F3FDD8F"
+                            alt="{movie.title}" />
+                        </CardContent>
+                    </Card>
+                </span>
+
+
+
             </div>
         )
     }
