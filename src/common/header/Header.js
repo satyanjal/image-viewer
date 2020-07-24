@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import DropDownMenu from '../../common/dropDown';
 import SearchBar from '../../common/searchBar';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
@@ -19,13 +20,17 @@ const Header = function (props) {
 
     const classes = useStyles();
     let afterLogin;
+
+    let profileIcon;
+    profileIcon = <IconButton aria-label="delete">
+                        <Avatar src={props.imageSrc} className={classes.large} />
+                    </IconButton>
+
     if (props.isLoggedIn === "true") {
       afterLogin = <span className="searchBar">
                     <SearchBar/>
                     <span className="profileIcon">
-                        <IconButton aria-label="delete">
-                            <Avatar src={props.imageSrc} className={classes.large} />
-                        </IconButton>
+                        <DropDownMenu profileIcon={profileIcon}/>
                     </span>
                 </span>
     } else {
