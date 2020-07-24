@@ -9,7 +9,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import PropTypes from 'prop-types';
 
 const styles = theme => ({
     root: {

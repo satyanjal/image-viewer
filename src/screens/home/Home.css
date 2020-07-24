@@ -1,0 +1,11 @@
+.card-test {
+    height : 500px;
+    width: 550px;
+    float:left;
+    margin: 20px 0px 0px 100px;
+}
+
+.img-size {
+    width: 520px;
+    height : 400px;
+}
