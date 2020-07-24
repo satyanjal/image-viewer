@@ -60,6 +60,10 @@ export default function DropDownMenu(props) {
     setAnchorEl(event.currentTarget);
   };
 
+  const logoutClick = (event) => {
+    sessionStorage.removeItem("access-token");
+  };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -81,7 +85,7 @@ export default function DropDownMenu(props) {
         </StyledMenuItem>
         <hr className={classes.horizontalLine}/>
         <StyledMenuItem>
-          <ListItemText primary="Logout" />
+          <ListItemText primary="Logout" onClick={logoutClick}/>
         </StyledMenuItem>
 
       </StyledMenu>
