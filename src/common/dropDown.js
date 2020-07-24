@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     color:"gray",
     border: '1px solid #d3d4d5',
     width:100,
+    marginLeft: 5,
+    marginTop:0,
+    marginBottom:0
   },
 }));
 
