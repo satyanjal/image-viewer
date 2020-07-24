@@ -37,10 +37,6 @@ class Login extends Component {
         }
     }
 
-    static contextTypes = {
-        router: PropTypes.object
-    }
-
     userNameChangeHandler = event => {
         this.setState({ userName: event.target.value });
     }
