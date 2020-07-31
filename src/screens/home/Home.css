@@ -30,5 +30,8 @@
 .profile-icon {
     background: white;
     border: 0px white;
+}
 
+.likes {
+    color: red;
 }
