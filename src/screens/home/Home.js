@@ -15,7 +15,12 @@ class Home extends Component {
         super();
         this.state = {
             liked: false,
+            insta: []
         }
+    }
+
+    componentWillMount() { //TODO - Remove HARDCODEED DATA
+        this.setState({ insta: this.props.location.data });
     }
 
     likesHandler = () => {
@@ -40,13 +45,14 @@ class Home extends Component {
         }
 
 
+
         return (
             <div>
                 <Header heading="Image Viewer"
                 imageSrc={imageSrc} imageSize="7"
                 isLoggedIn="true"/>
 
-                {this.props.location.data.map((post, index)  => (
+                {this.state.insta.map((post, index)  => (
                     <span key={index}>
                         <Card className="card-test">
                             <div>
