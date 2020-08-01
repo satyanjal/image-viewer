@@ -9,7 +9,7 @@ const Header = function (props) {
 
     let afterLogin;
     let profileIcon;
-    profileIcon = <ProfileIconBtn imageSrc={props.imageSrc}/>
+    profileIcon = <ProfileIconBtn imageSrc={props.imageSrc} imageSize={props.imageSize}/>
 
     if (props.isLoggedIn === "true") {
       afterLogin = <span className="searchBar">

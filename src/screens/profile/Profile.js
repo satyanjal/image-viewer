@@ -17,8 +17,13 @@ class Profile extends Component {
         return (
             <div>
                 <Header heading="Image Viewer"
-                imageSrc={imageSrc}
+                imageSrc={imageSrc} imageSize="7"
                 isLoggedIn="true"/>
+
+                <span className="profileHeader">
+                    <ProfileIconBtn imageSrc={imageSrc} imageSize="20"/>
+                </span>
+
             </div>
         )
     }
