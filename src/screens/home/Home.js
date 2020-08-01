@@ -27,7 +27,9 @@ class Home extends Component {
     }
 
     render() {
-        const imageSrc = "https://scontent.cdninstagram.com/v/t51.2885-15/44843566_2258719704414956_2636245074743740266_n.jpg?_nc_cat=107&_nc_sid=8ae9d6&_nc_ohc=gr4K5b7mC6gAX9J1rsa&_nc_ht=scontent.cdninstagram.com&oh=32414f6dab91e8ada795e200eead89ba&oe=5F3D2FD6"
+        const imageSrc = "https://scontent.cdninstagram.com/v/t51.2885-15/" +
+        "44843566_2258719704414956_2636245074743740266_n.jpg?_nc_cat=107&_nc_sid=8ae9d6&_nc_ohc=" +
+        "gr4K5b7mC6gAX9J1rsa&_nc_ht=scontent.cdninstagram.com&oh=32414f6dab91e8ada795e200eead89ba&oe=5F3D2FD6"
 
         const isLiked = this.state.liked;
         let likeButton;
@@ -92,7 +94,7 @@ class Home extends Component {
                     <span key={index}>
                         <Card className="card-test">
                             <div>
-                                <button className="profile-icon"><ProfileIconBtn imageSrc={post.profile_pic}/></button>
+                                <button className="profile-icon"><ProfileIconBtn imageSrc={imageSrc}/></button>
                                 <button className="card-header">
                                     <div className="card-header-name">{post.username}</div>
                                     <div className="card-header-date">{post.timestamp}</div>
@@ -102,13 +104,9 @@ class Home extends Component {
                                 <img className="img-size" alt="" src={post.media_url}/>
                                 <hr/>
                                 <div>{post.caption}</div>
-                                <div>
-                                    <span>
-                                        {likeButton}
-                                    </span>
-                                    <span>
-                                    {post.likes} likes
-                                    </span>
+                                <div id={"likeBtn_"+index}>
+                                    {likeButton}
+                                    {isLiked ? parseInt(post.likes)+1 : parseInt(post.likes)} likes
                                 </div>
                             </CardContent>
 
