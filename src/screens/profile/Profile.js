@@ -124,7 +124,7 @@ class Profile extends Component {
                 <span className="profileHeader">
                     <ProfileIconBtn imageSrc={imageSrc} imageSize="20"/>
 
-                    <button className="card-test">
+                    <button className="profile-header-card">
                         <span className="profileHeaderNameAlignment">
                             {this.state.insta[0].username}
                         </span>
@@ -144,7 +144,7 @@ class Profile extends Component {
                 <div className="all-photos">
                     {this.state.insta.map((post, index)  => (
                         <span key={index}>
-                            <img className="img-size" alt="" src={post.media_url}/>
+                            <img className="all-photos-img-size" alt="" src={post.media_url}/>
                         </span>
                     ))}
                 </div>

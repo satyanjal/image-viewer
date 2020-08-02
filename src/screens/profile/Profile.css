@@ -3,8 +3,8 @@
 }
 
 
-.card-test {
-    margin: 45px 330px 0px 0px;
+.profile-header-card {
+    margin: 40px 520px 0px 0px;
     height: 60px;
     float: right;
     background-color: white;
@@ -45,7 +45,7 @@
     margin: 30px 0px 0px 100px;
 }
 
-.img-size {
+.all-photos-img-size {
     width: 320px;
     height : 200px;
     float:left;

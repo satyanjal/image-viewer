@@ -97,7 +97,7 @@ class Home extends Component {
 
                 {this.state.insta.map((post, index)  => (
                     <span key={index}>
-                        <Card className="card-test">
+                        <Card className="post-card-test">
                             <div>
                                 <button className="profile-icon"><ProfileIconBtn imageSrc={imageSrc} imageSize="7"/></button>
                                 <button className="card-header">
@@ -106,7 +106,7 @@ class Home extends Component {
                                 </button>
                             </div>
                             <CardContent>
-                                <img className="img-size" alt="" src={post.media_url}/>
+                                <img className="post-card-img-size" alt="" src={post.media_url}/>
                                 <hr/>
                                 <div>{post.caption}</div>
                                 <div id={"likeBtn_"+index}>
