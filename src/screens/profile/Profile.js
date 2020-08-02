@@ -11,6 +11,8 @@ import Input from '@material-ui/core/Input';
 import PropTypes from 'prop-types';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 
 const customStyles = {
@@ -141,13 +143,14 @@ class Profile extends Component {
                         </span>
                     </button>
                 </span>
-                <div className="all-photos">
+                <GridList cols={3} className="grid-alignment">
                     {this.state.insta.map((post, index)  => (
-                        <span key={index}>
-                            <img className="all-photos-img-size" alt="" src={post.media_url}/>
-                        </span>
+                        <GridListTile key={index}>
+                            <img src={post.media_url} alt="loading" />
+                        </GridListTile>
                     ))}
-                </div>
+                </GridList>
+
 
                 <Modal
                     ariaHideApp={false}

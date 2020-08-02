@@ -3,9 +3,18 @@ import './Header.css';
 import DropDownMenu from '../../common/dropDown';
 import SearchBar from '../../common/searchBar';
 import ProfileIconBtn from '../../common/profileIconBtn';
+import { useHistory } from "react-router-dom";
 
 
 const Header = function (props) {
+
+    function MyHeaderName(name) {
+        let history = useHistory();
+        function handleClick() {
+            history.push("/home");
+        }
+        return <a className="headerName" href="/home" onClick={handleClick}>{name}</a>
+      }
 
     let afterLogin;
     let profileIcon;
@@ -24,7 +33,7 @@ const Header = function (props) {
 
     return (
         <div className="header">
-            {props.heading}
+            {MyHeaderName(props.heading)}
             {afterLogin}
         </div>
     )
