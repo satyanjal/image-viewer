@@ -26,3 +26,14 @@
     font-size : 20px;
 }
 
+.modalHeader {
+    float: left;
+}
+
+.modalHeaderSize {
+    font-size : 25px !important;
+}
+
+.modalUpdateBtn {
+    float: left;
+}

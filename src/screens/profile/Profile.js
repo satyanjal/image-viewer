@@ -159,19 +159,19 @@ class Profile extends Component {
                     style={customStyles}
                 >
                     <TabContainer>
-                        <div><FormControl>
-                            <Typography color="textPrimary">
-                                EDIT
-                            </Typography>
-                        </FormControl></div>
+                        <div>
+                            <FormControl className="modalHeader">
+                                <Typography color="textPrimary" className="modalHeaderSize">
+                                    Edit
+                                </Typography>
+                            </FormControl>
+                        </div>
                         <FormControl required>
-                            <InputLabel htmlFor="username">Username</InputLabel>
+                            <InputLabel htmlFor="username">Full Name</InputLabel>
                             <Input id="username" type="text" username={this.state.username} onChange={this.inputUsernameChangeHandler} />
                         </FormControl>
                         <br /><br />
-
-                        <br /><br />
-                        <Button variant="contained" color="primary" onClick={this.closeModalHandler}>UPDATE</Button>
+                        <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.closeModalHandler}>UPDATE</Button>
                     </TabContainer>
                 </Modal>
 
