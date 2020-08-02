@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 import Header from '../../common/header/Header';
 import ProfileIconBtn from '../../common/profileIconBtn';
 import './Profile.css';
-
 import Button from '@material-ui/core/Button';
 import Modal from 'react-modal';
-//import Tabs from '@material-ui/core/Tabs';
-//import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import PropTypes from 'prop-types';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
-
-
 
 
 const customStyles = {
@@ -147,9 +141,13 @@ class Profile extends Component {
                         </span>
                     </button>
                 </span>
-
-
-
+                <div className="all-photos">
+                    {this.state.insta.map((post, index)  => (
+                        <span key={index}>
+                            <img className="img-size" alt="" src={post.media_url}/>
+                        </span>
+                    ))}
+                </div>
 
                 <Modal
                     ariaHideApp={false}
@@ -174,11 +172,6 @@ class Profile extends Component {
                         <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.closeModalHandler}>UPDATE</Button>
                     </TabContainer>
                 </Modal>
-
-
-
-
-
             </div>
         )
     }

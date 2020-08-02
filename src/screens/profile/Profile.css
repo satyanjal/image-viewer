@@ -37,3 +37,21 @@
 .modalUpdateBtn {
     float: left;
 }
+
+.photo-card {
+    height : 600px;
+    width: 550px;
+    float:left;
+    margin: 30px 0px 0px 100px;
+}
+
+.img-size {
+    width: 320px;
+    height : 200px;
+    float:left;
+    margin-right: 5px
+}
+
+.all-photos {
+    margin: 15px 0px 0px 65px;
+}
