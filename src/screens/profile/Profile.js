@@ -47,6 +47,8 @@ class Profile extends Component {
             insta: [],
             username: "Satyanjal Prakash",
             modalIsOpen: false,
+            imageModalIsOpen: false,
+            postDetails: ""
         }
     }
 
@@ -111,6 +113,17 @@ class Profile extends Component {
         this.setState({ username: e.target.value });
     }
 
+    openImageModalHandler = (postDetails) => {
+        this.setState({
+            imageModalIsOpen: true,
+            postDetails:postDetails
+        });
+    }
+
+    closeImageModalHandler = () => {
+        this.setState({ imageModalIsOpen: false });
+    }
+
     render() {
 
         const imageSrc = "https://scontent.cdninstagram.com/v/t51.2885-15/" +
@@ -146,11 +159,32 @@ class Profile extends Component {
                 <GridList cols={3} className="grid-alignment">
                     {this.state.insta.map((post, index)  => (
                         <GridListTile key={index}>
-                            <img src={post.media_url} alt="loading" />
+                            <img className="all-photos-img-size" src={post.media_url} onClick={() => this.openImageModalHandler(post)} alt="loading" />
                         </GridListTile>
                     ))}
                 </GridList>
 
+                <Modal
+                    ariaHideApp={false}
+                    isOpen={this.state.imageModalIsOpen}
+                    contentLabel="Photo-Details"
+                    onRequestClose={this.closeImageModalHandler}
+                    style={customStyles}
+                >
+                    <TabContainer>
+                        <div className="modal-photo-img-alignment">
+                            <img className="modal-photo-img-size" src={this.state.postDetails.media_url} alt="loading" />
+                        </div>
+                        <FormControl className="modal-tab-size">
+                            <ProfileIconBtn imageSrc={imageSrc} imageSize="7"/>
+                            <span className="profileHeaderUserName">
+                                {this.state.username}
+                            </span>
+                        </FormControl>
+                        <br /><br />
+                        <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.closeImageModalHandler}>Add</Button>
+                    </TabContainer>
+                </Modal>
 
                 <Modal
                     ariaHideApp={false}

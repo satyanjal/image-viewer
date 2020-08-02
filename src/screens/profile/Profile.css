@@ -46,10 +46,20 @@
 }
 
 .all-photos-img-size {
-    width: 320px;
-    height : 200px;
-    float:left;
-    margin-right: 5px
+    height : 100%;
+}
+
+.modal-photo-img-size {
+    height: 500px;
+    width: 300px
+}
+
+.modal-photo-img-alignment {
+    float: left
+}
+
+.modal-tab-size {
+    width: 400px;
 }
 
 .all-photos {
