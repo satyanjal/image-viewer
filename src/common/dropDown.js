@@ -3,6 +3,7 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { useHistory } from "react-router-dom";
 
 
 const StyledMenu = withStyles({
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function DropDownMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const classes = useStyles();
@@ -56,9 +58,22 @@ export default function DropDownMenu(props) {
     setAnchorEl(event.currentTarget);
   };
 
-  const logoutClick = (event) => {
-    sessionStorage.removeItem("access-token");
-  };
+  function MyAccountButtton() {
+    let history = useHistory();
+    function handleClick() {
+        history.push("/profile");
+    }
+    return <ListItemText primary="My Account" onClick={handleClick}/>
+  }
+
+  function LogoutButton() {
+    let history = useHistory();
+    function handleClick() {
+        sessionStorage.removeItem("access-token");
+        history.push("/");
+    }
+    return <ListItemText primary="Logout" onClick={handleClick}/>
+  }
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -77,11 +92,11 @@ export default function DropDownMenu(props) {
         onClose={handleClose}>
 
         <StyledMenuItem>
-          <ListItemText primary="My Account" />
+            {MyAccountButtton()}
         </StyledMenuItem>
         <hr className={classes.horizontalLine}/>
         <StyledMenuItem>
-          <ListItemText primary="Logout" onClick={logoutClick}/>
+          {LogoutButton()}
         </StyledMenuItem>
 
       </StyledMenu>
