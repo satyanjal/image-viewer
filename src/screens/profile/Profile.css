@@ -1,3 +1,28 @@
 .profileHeader {
     margin-left: 350px;
 }
+
+
+.card-test {
+    margin: 45px 330px 0px 0px;
+    height: 60px;
+    float: right;
+    background-color: white;
+    border: 0px;
+}
+
+.profileHeaderNameAlignment {
+    float: left;
+    font-size : 22px;
+}
+
+.profileHeaderDetailsAlignment {
+    float: left;
+    font-size : 15px;
+}
+
+.profileHeaderUserName {
+    float: left;
+    font-size : 20px;
+}
+
