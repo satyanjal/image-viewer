@@ -70,6 +70,7 @@ export default function DropDownMenu(props) {
     let history = useHistory();
     function handleClick() {
         sessionStorage.removeItem("access-token");
+        sessionStorage.removeItem("insta-data");
         history.push("/");
     }
     return <ListItemText primary="Logout" onClick={handleClick}/>

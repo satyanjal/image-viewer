@@ -6,7 +6,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 
 
 class Home extends Component {
@@ -30,8 +33,10 @@ class Home extends Component {
                 .then(res => res.json())
                 .then((recordResult) => {
                     recordResult.likes = Math.floor(Math.random() * 10);
+                    recordResult.comments = [];
                     instaData.push(recordResult)
                     this.setState({ insta: instaData });
+                    sessionStorage.setItem("insta-data", JSON.stringify(instaData));
                 })
             })
         },
@@ -87,6 +92,11 @@ class Home extends Component {
                                     {likeButton}
                                     {isLiked ? parseInt(post.likes)+1 : parseInt(post.likes)} likes
                                 </div>
+                                <FormControl style={{width:300, marginTop: 35}}>
+                                    <InputLabel htmlFor="comment">Add a comment</InputLabel>
+                                    <Input id="comment" type="text" username={this.state.username} onChange={this.inputUsernameChangeHandler} />
+                                </FormControl>
+                                <Button className="cardCommentAddBtn" variant="contained" color="primary" onClick={this.closeImageModalHandler}>Add</Button>
                             </CardContent>
 
 
