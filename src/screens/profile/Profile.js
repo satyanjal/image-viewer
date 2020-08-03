@@ -47,6 +47,7 @@ class Profile extends Component {
         this.state = {
             insta: [],
             username: "Satyanjal Prakash",
+            userId: "satyanjalprakash",
             modalIsOpen: false,
             imageModalIsOpen: false,
             showComments: false,
@@ -56,11 +57,27 @@ class Profile extends Component {
         }
     }
 
-    //    this.props.location.data
-    componentWillMount() { //TODO - Remove HARDCODEED DATA
-        console.log(this.props);
-        var instaData = sessionStorage.getItem("insta-data");
-        this.setState({ insta: JSON.parse(instaData) });
+    componentWillMount() {
+        var instaData = []
+        var accessToken = sessionStorage.getItem("access-token");
+        fetch("https://graph.instagram.com/me/media?fields=id,caption&access_token="+ accessToken)
+        .then(res => res.json())
+        .then((result) => {
+            result.data.forEach(record => {
+                fetch("https://graph.instagram.com/"+ record.id +"?fields=id,media_type,media_url,username,caption,timestamp&access_token=" + accessToken)
+                .then(res => res.json())
+                .then((recordResult) => {
+                    recordResult.likes = Math.floor(Math.random() * 10);
+                    recordResult.comments = [];
+                    instaData.push(recordResult)
+                    this.setState({ insta: instaData });
+                })
+            })
+        },
+        (error) => {
+            this.setState({ error });
+        })
+
     }
 
     openModalHandler = () => {
@@ -98,7 +115,6 @@ class Profile extends Component {
         var updatedData = this.state.insta;
         updatedData[this.state.imageOpenModalIndex].comments.push({"value": this.state.inputComment})
         this.setState({ insta: updatedData, inputComment: "" });
-        sessionStorage.setItem("insta-data", JSON.stringify(updatedData));
     }
 
     render() {
@@ -118,7 +134,7 @@ class Profile extends Component {
 
                     <button className="profile-header-card">
                         <span className="profileHeaderNameAlignment">
-                            {this.state.insta[0].username}
+                            {this.state.userId}
                         </span>
                         <br/><br/>
                         <span className="profileHeaderDetailsAlignment">

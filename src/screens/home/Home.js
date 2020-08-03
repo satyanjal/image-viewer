@@ -36,7 +36,6 @@ class Home extends Component {
                     recordResult.comments = [];
                     instaData.push(recordResult)
                     this.setState({ insta: instaData });
-                    sessionStorage.setItem("insta-data", JSON.stringify(instaData));
                 })
             })
         },
@@ -65,8 +64,6 @@ class Home extends Component {
         } else {
             likeButton = <FavoriteBorderIcon onClick={this.likesHandler}/>
         }
-
-
 
         return (
             <div>
@@ -98,8 +95,6 @@ class Home extends Component {
                                 </FormControl>
                                 <Button className="cardCommentAddBtn" variant="contained" color="primary" onClick={this.closeImageModalHandler}>Add</Button>
                             </CardContent>
-
-
                         </Card>
                     </span>
                 ))}
