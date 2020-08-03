@@ -24,6 +24,7 @@
 .profileHeaderUserName {
     float: left;
     font-size : 20px;
+    margin-right: 120px;
 }
 
 .modalHeader {
@@ -36,6 +37,8 @@
 
 .modalUpdateBtn {
     float: left;
+    width: 80px;
+    margin-top: 10px;
 }
 
 .photo-card {
@@ -60,6 +63,7 @@
 
 .modal-tab-size {
     width: 400px;
+    margin-left: 10px !important;
 }
 
 .all-photos {
@@ -68,4 +72,13 @@
 
 .grid-alignment {
     margin: 15px 150px 0px 150px !important;
+}
+
+.modal-likes-alignment {
+    text-align: left
+}
+
+.modal-comments-alignment {
+    text-align: left;
+    margin: 70px 0px 125px 0px;
 }

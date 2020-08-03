@@ -13,6 +13,7 @@ import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
 const customStyles = {
@@ -48,6 +49,7 @@ class Profile extends Component {
             username: "Satyanjal Prakash",
             modalIsOpen: false,
             imageModalIsOpen: false,
+            showComments: false,
             postDetails: ""
         }
     }
@@ -63,6 +65,7 @@ class Profile extends Component {
                        "timestamp": "2018-10-06T19:20:04+0000",
                        "caption": "Party #finally",
                        "likes": 8,
+                       "comments": [{"value" : "Trial period"}, {"value" : "sample"}],
                        "profile_pic": "https://scontent.cdninstagram.com/v/t51.2885-15/44843566_2258719704414956_2636245074743740266_n.jpg?_nc_cat=107&_nc_sid=8ae9d6&_nc_ohc=gr4K5b7mC6gAX9J1rsa&_nc_ht=scontent.cdninstagram.com&oh=32414f6dab91e8ada795e200eead89ba&oe=5F3D2FD6"
 
                     },
@@ -74,6 +77,7 @@ class Profile extends Component {
                        "timestamp": "2018-11-08T09:07:38+0000",
                        "caption": "Ethnic Diwali.. #withfamily",
                        "likes": 4,
+                       "comments": [{"value" : "Trial period"}, {"value" : "sample"}],
                        "profile_pic": "https://scontent.cdninstagram.com/v/t51.2885-15/44843566_2258719704414956_2636245074743740266_n.jpg?_nc_cat=107&_nc_sid=8ae9d6&_nc_ohc=gr4K5b7mC6gAX9J1rsa&_nc_ht=scontent.cdninstagram.com&oh=32414f6dab91e8ada795e200eead89ba&oe=5F3D2FD6"
                     },
                     {
@@ -84,6 +88,7 @@ class Profile extends Component {
                        "timestamp": "2018-09-23T15:19:16+0000",
                        "caption": "With Gautam #longdrive \n#rastacafe",
                        "likes": 2,
+                       "comments": [{"value" : "Trial period"}, {"value" : "sample"}],
                        "profile_pic": "https://scontent.cdninstagram.com/v/t51.2885-15/44843566_2258719704414956_2636245074743740266_n.jpg?_nc_cat=107&_nc_sid=8ae9d6&_nc_ohc=gr4K5b7mC6gAX9J1rsa&_nc_ht=scontent.cdninstagram.com&oh=32414f6dab91e8ada795e200eead89ba&oe=5F3D2FD6"
                     },
                     {
@@ -94,6 +99,7 @@ class Profile extends Component {
                        "timestamp": "2017-02-26T14:25:17+0000",
                        "caption": "Adieu  Ranchi.. #bhaikishaadi \n#friends",
                        "likes": 5,
+                       "comments": [{"value" : "Trial period"}, {"value" : "sample"}],
                        "profile_pic": "https://scontent.cdninstagram.com/v/t51.2885-15/44843566_2258719704414956_2636245074743740266_n.jpg?_nc_cat=107&_nc_sid=8ae9d6&_nc_ohc=gr4K5b7mC6gAX9J1rsa&_nc_ht=scontent.cdninstagram.com&oh=32414f6dab91e8ada795e200eead89ba&oe=5F3D2FD6"
                     }
                 ] });
@@ -116,7 +122,8 @@ class Profile extends Component {
     openImageModalHandler = (postDetails) => {
         this.setState({
             imageModalIsOpen: true,
-            postDetails:postDetails
+            postDetails:postDetails,
+            showComments: true
         });
     }
 
@@ -176,13 +183,36 @@ class Profile extends Component {
                             <img className="modal-photo-img-size" src={this.state.postDetails.media_url} alt="loading" />
                         </div>
                         <FormControl className="modal-tab-size">
-                            <ProfileIconBtn imageSrc={imageSrc} imageSize="7"/>
                             <span className="profileHeaderUserName">
-                                {this.state.username}
+                                <ProfileIconBtn imageSrc={imageSrc} imageSize="7"/>
+                                {this.state.postDetails.username}
                             </span>
+                            <hr style={{width: 380}}/>
+                            <span style={{textAlign: "left"}}>{this.state.postDetails.caption}</span>
+                            <div className="modal-comments-alignment">
+                                {this.state.showComments &&
+                                    <div>
+                                        {this.state.postDetails.comments.map((singleComment, index)  => (
+                                            <div key={index}>
+                                                <span style={{fontWeight: 700}}>{this.state.postDetails.username}</span> : <span>{singleComment.value}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                }
+                            </div>
+                            <span className="modal-likes-alignment">
+                                <FavoriteIcon className="likes"/> {this.state.postDetails.likes} likes
+                            </span>
+                            <FormControl>
+                                <InputLabel htmlFor="comment">Add a comment</InputLabel>
+                                <Input id="comment" type="text" username={this.state.username} onChange={this.inputUsernameChangeHandler} />
+                                <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.closeImageModalHandler}>Add</Button>
+                            </FormControl>
+
+
                         </FormControl>
                         <br /><br />
-                        <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.closeImageModalHandler}>Add</Button>
+
                     </TabContainer>
                 </Modal>
 
