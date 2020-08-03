@@ -50,7 +50,9 @@ class Profile extends Component {
             modalIsOpen: false,
             imageModalIsOpen: false,
             showComments: false,
-            postDetails: ""
+            postDetails: "",
+            inputComment: "",
+            imageOpenModalIndex: -1
         }
     }
 
@@ -75,16 +77,28 @@ class Profile extends Component {
         this.setState({ username: e.target.value });
     }
 
-    openImageModalHandler = (postDetails) => {
+    openImageModalHandler = (postDetails, index) => {
         this.setState({
             imageModalIsOpen: true,
             postDetails:postDetails,
-            showComments: true
+            showComments: true,
+            imageOpenModalIndex: index
         });
     }
 
     closeImageModalHandler = () => {
         this.setState({ imageModalIsOpen: false });
+    }
+
+    inputCommentAddHandler = (e) => {
+        this.setState({ inputComment: e.target.value });
+    }
+
+    addCommentHandler = () => {
+        var updatedData = this.state.insta;
+        updatedData[this.state.imageOpenModalIndex].comments.push({"value": this.state.inputComment})
+        this.setState({ insta: updatedData, inputComment: "" });
+        sessionStorage.setItem("insta-data", JSON.stringify(updatedData));
     }
 
     render() {
@@ -122,7 +136,7 @@ class Profile extends Component {
                 <GridList cols={3} className="grid-alignment">
                     {this.state.insta.map((post, index)  => (
                         <GridListTile key={index}>
-                            <img className="all-photos-img-size" src={post.media_url} onClick={() => this.openImageModalHandler(post)} alt="loading" />
+                            <img className="all-photos-img-size" src={post.media_url} onClick={() => this.openImageModalHandler(post, index)} alt="loading" />
                         </GridListTile>
                     ))}
                 </GridList>
@@ -159,11 +173,11 @@ class Profile extends Component {
                             <span className="modal-likes-alignment">
                                 <FavoriteIcon className="likes"/> {this.state.postDetails.likes} likes
                             </span>
-                            <FormControl>
+                            <FormControl style={{width:300, marginTop: 35}}>
                                 <InputLabel htmlFor="comment">Add a comment</InputLabel>
-                                <Input id="comment" type="text" username={this.state.username} onChange={this.inputUsernameChangeHandler} />
-                                <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.closeImageModalHandler}>Add</Button>
+                                <Input id="comment" type="text" username={this.state.username} onChange={this.inputCommentAddHandler} />
                             </FormControl>
+                            <Button className="modalUpdateBtn" variant="contained" color="primary" onClick={this.addCommentHandler}>Add</Button>
 
 
                         </FormControl>

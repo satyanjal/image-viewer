@@ -48,7 +48,7 @@ class Login extends Component {
         this.state.userName === "" ? this.setState({ usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ loginPasswordRequired: "dispBlock" }) : this.setState({ loginPasswordRequired: "dispNone" });
 
-
+        // CHANGE THE ACCESS TOKEN TO YOUR OWN
         if (this.state.userName === "admin" && this.state.password === "admin") {
             this.setState({ incorrectCreds: "dispNone" })
             sessionStorage.setItem("access-token", "IGQVJWb1hBX2RqeHRwd05wb05NU0tTaWh0OHdXdUdjazlZARE9kOTJoUVFNZAXA0QUlxZAU1HX1BYUDRsbmx6V3RrcmlLOEgxOUtaZAUluQ2l4RVhvTVNTa1F4M0VWOFhtT2RPYTJCVHdtTEV3U1V2bVN1bwZDZD");
